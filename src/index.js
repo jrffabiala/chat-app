@@ -6,6 +6,7 @@ const Filter = require('bad-words');
 const { generateMessage, generateLocationMessage } = require('./utils/messages.js');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users.js');
 
+const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
@@ -65,6 +66,6 @@ const directoryPath = path.join(__dirname, '../public');
 
 app.use(express.static(directoryPath));
 
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log('Server is listening on port 3000');
 })
